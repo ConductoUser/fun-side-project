@@ -13,6 +13,7 @@ def pr(branch) -> co.Parallel:
     # Using that Docker image, run three commands in parallel to interact with the
     # repo's files.
     with co.Parallel(image=image) as root:
+        co.Exec(f"Hi!", name="be friendly")
         co.Exec(f"echo {branch}", name="print branch")
         co.Exec("pwd", name="print working directory")
         co.Exec("ls -la", name="list files")
